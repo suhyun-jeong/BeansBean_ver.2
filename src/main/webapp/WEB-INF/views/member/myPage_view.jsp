@@ -22,14 +22,41 @@
 <script type="text/javascript">
 
 	$(function() {
+		// 비밀번호 보기/감추기
+		var userPasswd = "<c:out value='${userInfo.passwd}' />";	// 비밀번호
+		var mosaicPasswd = "";	// 가려진 비밀번호
+		for (var i = 0; i < userPasswd.length; i++)
+			mosaicPasswd += "⦁";
+		$("#showPw").text(mosaicPasswd);	// 가려진게 기본
+
+		var showPw = false;
+		$("#showPwIcon").click(function() {	// 눈 모양 아이콘
+			showPw = !showPw;
+			
+			if (showPw) {
+				$("#showPw").text(userPasswd);
+				$("#showPwIcon").attr("src", "images/icons/eye-close.png");
+			} else {
+				$("#showPw").text(mosaicPasswd);
+				$("#showPwIcon").attr("src", "images/icons/eye-open.png");
+			}
+		});
+		
+		
+		// 비밀번호 변경
+		$("#changePasswdBtn").click(function(event) {
+			event.preventDefault();
+			console.log("비밀번호 변경 버튼");
+			// window.open();
+		});
+		
+		
 		// 도메인 자동 입력
 		$("#emailSelect").change(function() {
 			$("#email2").val(this.value);
 		});
 		
-		// 빈칸 검사
-
-	$(document).ready(function() {
+		
 		// 빈칸 검사		
 		$("form").submit(function(event) {
 			var inputCheck = true;
@@ -54,8 +81,6 @@
 	<% session.removeAttribute("userInfoMsg"); %>
 </c:if>
 
-<% MemberDTO userInfo = (MemberDTO) request.getAttribute("userInfo"); %>
-
 <!-- 회원 정보 폼 -->
 <form action="userInfoUpdate" method="post">
 	<table>
@@ -63,14 +88,25 @@
 			<th>아이디</th>
 
 			<td style="cursor:default;">
-
-			<td>
 				${userInfo.userid}
 				<input type="hidden" name="userid" value="${userInfo.userid}">
 				<span style="margin-left:20px;">
 					<c:if test="${userInfo.usercode == 10}">(관리자)</c:if>
 					<c:if test="${userInfo.usercode == 20}">(일반 회원)</c:if>
 					<c:if test="${userInfo.usercode == 30}">(사업자 회원)</c:if>
+				</span>
+			</td>
+		</tr>
+		
+		<tr><td colspan="3"><hr></td></tr>
+		
+		<tr>
+			<th>비밀번호 변경</th>
+			<td>
+				<span id="showPw"></span>
+				<span style="float:right;cursor:pointer;">
+					<img src="images/icons/eye-open.png" id="showPwIcon" alt="비밀번호 보이기/가리기">
+					<button id="changePasswdBtn">변경하기</button>
 				</span>
 			</td>
 		</tr>
