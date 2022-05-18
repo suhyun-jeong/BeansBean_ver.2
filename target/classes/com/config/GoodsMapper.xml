@@ -50,7 +50,10 @@
 	 where num=#{num}
 	</select>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 	<delete id="cartAllDel" parameterType="arraylist">
 	  delete
 	  from cart
@@ -69,6 +72,7 @@
 
 	<update id="cartUpdate" parameterType="hashmap">
 	 update cart
+<<<<<<< HEAD
 	 set gamount= #{gamount}
 	 where num=#{num}
 	</update>
@@ -77,5 +81,11 @@
 	<update id="updateAmount" parameterType="HashMap">
 		UPDATE GOODS SET GAMOUNT = GAMOUNT - #{gamount} WHERE GCODE = #{gcode}
 	</update>
+=======
+	 set gAmount= #{gAmount}
+	 where num=#{num}
+	</update>
+
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 
 </mapper>

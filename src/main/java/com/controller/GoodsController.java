@@ -83,6 +83,7 @@ public class GoodsController {
 	@RequestMapping("/loginCheck/cartAdd")
 	public String cartAdd(CartDTO cart, HttpSession session) {
 		MemberDTO mDTO= (MemberDTO)session.getAttribute("login");
+<<<<<<< HEAD
 		
 		cart.setUserid(mDTO.getUserid());
 		
@@ -91,6 +92,15 @@ public class GoodsController {
 		return "redirect:../goodsDetail?gcode="+cart.getGcode();
 	}
 
+=======
+		cart.setUserid(mDTO.getUserid());
+//		session.setAttribute("mesg", cart.getGcode());
+		service.cartAdd(cart);
+		return "redirect:../goodsDetail?gcode="+cart.getGcode();
+	}
+	
+		
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 	@RequestMapping("/loginCheck/cartList")
 	public String cartList(RedirectAttributes attr, HttpSession session) {
 		MemberDTO dto= (MemberDTO)session.getAttribute("login");
@@ -101,6 +111,10 @@ public class GoodsController {
 		
 	}
 
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 	@RequestMapping(value = "/loginCheck/cartDelete")
 	@ResponseBody
 	public void cartDelte(@RequestParam("num") int num) {
@@ -119,8 +133,16 @@ public class GoodsController {
 	@RequestMapping(value = "/loginCheck/cartUpdate")
 	@ResponseBody
 	public void cartUpdate(@RequestParam Map<String, String>map) {
+<<<<<<< HEAD
 		System.out.println(map); //
 		service.cartUpdate(map);
 	}
 
+=======
+		System.out.println(map);
+		service.cartUpdate(map);
+	}
+
+
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 }

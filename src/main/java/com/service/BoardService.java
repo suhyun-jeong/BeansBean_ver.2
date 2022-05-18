@@ -49,5 +49,34 @@ public class BoardService {
 		// TODO Auto-generated method stub
 		dao.ingrementInsert(ingre);
 	}
+<<<<<<< HEAD
+=======
+	public List<IngrementDTO> Ingrement_List(int num) {
+		List<IngrementDTO> iList = dao.Ingrement_List(num);
+		return iList;
+	}
+	public void Cook_BRD_delete(int num) {
+		dao.Cook_BRD_delete(num);
+		
+	}
+	public void Info_BRD_delete(int num) {
+		dao.Info_BRD_delete(num);
+		
+	}
+	public void Cook_BRD_modify(Cook_BrdDTO cook) {
+		dao.Cook_BRD_modify(cook);
+		
+	}
+	
+	public void ingrementDelete(int num) {
+		dao.ingrementDelete(num);
+		
+	}
+	public void Info_BRD_modify(Info_BrdDTO info) {
+		dao.Info_BRD_modify(info);
+		
+	}
+	
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 	
 }

@@ -24,6 +24,21 @@
 	 
 </insert>
 
+<<<<<<< HEAD
+=======
+<delete id="Info_BRD_delete" parameterType="int">
+		delete from info_brd
+		where num=#{num}
+</delete>
+	
+	
+<update id="Info_BRD_modify" parameterType="Info_BrdDTO">
+	 update info_brd
+	 set title = #{title}, content = #{content}
+	 where num = #{num}
+</update>	
+	
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 	
 	
 <select id="Cook_selectAll" resultType="Cook_BrdDTO">
@@ -50,6 +65,33 @@
 	select max(num) from cook_BRD
 </select>
 
+<<<<<<< HEAD
+=======
+<delete id="Cook_BRD_delete" parameterType="int">
+		delete from cook_brd
+		where num=#{num}
+</delete>
+
+<update id="Cook_BRD_modify" parameterType="Cook_BrdDTO">
+	 update cook_brd
+	 set title = #{title}, content = #{content}
+	 where num = #{num}
+</update>
+
+
+<delete id="ingrement_delete" parameterType="int">
+		delete from ingrement
+		where num=#{num}
+</delete>
+
+<select id="Ingrement_List" resultType="IngrementDTO" parameterType="int">
+	select ingreno, num, ingre, capacity
+	from ingrement
+	where num = #{num}
+</select>	
+
+
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 <insert id="ingrementInsert" parameterType="IngrementDTO">
 	INSERT INTO ingrement (ingreno, num, ingre, capacity)
 	values (Ingrement_SEQ.nextval, #{num}, #{ingre}, #{capacity})

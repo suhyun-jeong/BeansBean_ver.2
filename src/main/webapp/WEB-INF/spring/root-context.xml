@@ -6,6 +6,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+<<<<<<< HEAD
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		<!-- 1.jdbc.properties -->
@@ -13,11 +14,24 @@
 		
 		<!-- 2.DBCP2 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+=======
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 1.jdbc.properties -->
+	<context:property-placeholder
+		location="classpath:com/config/jdbc.properties" />
+
+	<!-- 2.DBCP2 -->
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp2.BasicDataSource"
+		destroy-method="close">
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 		<property name="driverClassName" value="${oracle.jdbc}"></property>
 		<property name="url" value="${oracle.url}"></property>
 		<property name="username" value="${oracle.userid}"></property>
 		<property name="password" value="${oracle.passwd}"></property>
 	</bean>
+<<<<<<< HEAD
 		
 	<bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
@@ -28,6 +42,19 @@
 				<value>classpath:com/config/GoodsMapper.xml</value>
 				<value>classpath:com/config/OrderMapper.xml</value>
 				<value>classpath:com/config/BoardMapper.xml</value>
+=======
+
+	<bean id="sessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="mapperLocations">
+			<list>
+				<value>classpath:com/config/MemberMapper.xml</value> <!--Mapper등록 -->
+				<value>classpath:com/config/ManagerMapper.xml</value> <!--Mapper등록 -->
+				<value>classpath:com/config/GoodsMapper.xml</value>
+				<value>classpath:com/config/BoardMapper.xml</value>
+				<value>classpath:com/config/OrderMapper.xml</value>
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 			</list>
 		</property>
 		<!-- <property name="mapperLocations" value="classpath:com/dao/*.xml" /> -->
@@ -46,6 +73,7 @@
 			</list>
 		</property>
 	</bean>
+<<<<<<< HEAD
 	
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg name="sqlSessionFactory" ref="sessionFactory"></constructor-arg>
@@ -59,3 +87,21 @@
 
 </beans>
 
+=======
+
+	<bean id="sqlSessionTemplate"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory"
+			ref="sessionFactory"></constructor-arg>
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<!-- Tx처리 annotation 활성화 필요함수에서 @처리 -->
+	<tx:annotation-driven
+		transaction-manager="transactionManager" />
+
+</beans>
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758

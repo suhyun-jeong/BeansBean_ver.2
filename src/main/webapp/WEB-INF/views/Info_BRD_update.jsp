@@ -4,18 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Info_BRD_DetailView</title>
+<title>Info_BRD_update</title>
 </head>
 <body>
-<<<<<<< HEAD
-<h1>사업자 게시판 자세히보기</h1>
-=======
 <h1>사업자 게시판</h1>
->>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 	<jsp:include page="common/top.jsp" flush="true"/><br>	<!-- 상단 메뉴 바 -->
 	<jsp:include page="common/menu.jsp" flush="true"></jsp:include><br>
 	<hr>
-	<jsp:include page="boards/Info_BRD_DetailView.jsp" flush="true"></jsp:include><br>
+	<jsp:include page="boards/Info_BRD_update.jsp" flush="true"></jsp:include><br>
 	
 </body>
 </html>

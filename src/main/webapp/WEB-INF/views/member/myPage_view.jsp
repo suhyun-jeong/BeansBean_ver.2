@@ -22,6 +22,7 @@
 <script type="text/javascript">
 
 	$(function() {
+<<<<<<< HEAD
 		// 비밀번호 보기/감추기
 		var userPasswd = "<c:out value='${userInfo.passwd}' />";	// 비밀번호
 		var mosaicPasswd = "";	// 가려진 비밀번호
@@ -51,12 +52,20 @@
 		});
 		
 		
+=======
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 		// 도메인 자동 입력
 		$("#emailSelect").change(function() {
 			$("#email2").val(this.value);
 		});
 		
+<<<<<<< HEAD
 		
+=======
+		// 빈칸 검사
+
+	$(document).ready(function() {
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 		// 빈칸 검사		
 		$("form").submit(function(event) {
 			var inputCheck = true;
@@ -81,6 +90,11 @@
 	<% session.removeAttribute("userInfoMsg"); %>
 </c:if>
 
+<<<<<<< HEAD
+=======
+<% MemberDTO userInfo = (MemberDTO) request.getAttribute("userInfo"); %>
+
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 <!-- 회원 정보 폼 -->
 <form action="userInfoUpdate" method="post">
 	<table>
@@ -88,6 +102,11 @@
 			<th>아이디</th>
 
 			<td style="cursor:default;">
+<<<<<<< HEAD
+=======
+
+			<td>
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 				${userInfo.userid}
 				<input type="hidden" name="userid" value="${userInfo.userid}">
 				<span style="margin-left:20px;">
@@ -101,6 +120,7 @@
 		<tr><td colspan="3"><hr></td></tr>
 		
 		<tr>
+<<<<<<< HEAD
 			<th>비밀번호 변경</th>
 			<td>
 				<span id="showPw"></span>
@@ -114,6 +134,8 @@
 		<tr><td colspan="3"><hr></td></tr>
 		
 		<tr>
+=======
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 			<th>이름</th>
 			<td><input type="text" name="username" id="username" placeholder="이름 " size="6" value="${userInfo.username}"></td>
 		</tr>

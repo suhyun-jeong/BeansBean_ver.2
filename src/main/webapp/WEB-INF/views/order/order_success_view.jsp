@@ -32,7 +32,11 @@
 	<div style="text-align:center;">
 		<h3><b>주문 완료</b></h3>
 		
+<<<<<<< HEAD
 		<c:if test="${oiDTO.userid ne '비회원'}">	<!-- 비회원 주문의 경우, 아이디를 출력하지 않음 -->
+=======
+		<c:if test="${not empty oiDTO.userid}">
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 			<b>${oiDTO.userid}</b> 님의 
 		</c:if>
 		주문이 안전하게 처리되었습니다.
@@ -60,16 +64,26 @@
 			<tr id="goodsValues">
 				<td style="text-align:left;">
 					${oiDTO.gname} 
+<<<<<<< HEAD
 					<c:if test="${not empty oiDTO.vcategory}">	<!-- 상품 옵션 정보가 없을 경우 -->
 						(${oiDTO.vcategory})
 					</c:if>
 					<c:if test="${oiDTO.bcategory ne '소매품'}">	<!-- 도매품일 경우, 묶음 정보 표시 -->
 						<br>
 						${bDTO.bcategory}
+=======
+					<c:if test="${not empty oiDTO.vcategory}">
+						(${oiDTO.vcategory})
+					</c:if>
+					<c:if test="${not empty oiDTO.bcategory}">
+						<br>
+						${oiDTO.bcategory}
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 					</c:if>
 				</td>
 				<td>${oiDTO.gprice}</td>
 				<td>${oiDTO.gamount}</td>
+<<<<<<< HEAD
 				<td id="totalPrice1">
 					<c:if test="${oiDTO.bcategory ne '소매품'}">	<!-- 도매품일 경우의 가격 총합 -->
 						${bDTO.bprice * oiDTO.gamount}원
@@ -78,6 +92,9 @@
 						${oiDTO.gprice * oiDTO.gamount}원
 					</c:if>
 				</td>
+=======
+				<td>${oiDTO.gprice * oiDTO.gamount}원</td>
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 			</tr>
 			
 			<tr><td colspan="4"><hr></td></tr>
@@ -126,6 +143,7 @@
 			
 			<tr>
 				<th>결제 금액</th>
+<<<<<<< HEAD
 				<td style="padding-right:30px;">
 					<c:if test="${oiDTO.bcategory ne '소매품'}">	<!-- 도매품일 경우의 가격 총합 -->
 						${bDTO.bprice * oiDTO.gamount}원
@@ -134,6 +152,9 @@
 						${oiDTO.gprice * oiDTO.gamount}원
 					</c:if>
 				</td>
+=======
+				<td style="padding-right:30px;">${oiDTO.gprice * oiDTO.gamount}원</td>
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 			</tr>
 			
 			<tr><td colspan="2"><hr></td></tr>

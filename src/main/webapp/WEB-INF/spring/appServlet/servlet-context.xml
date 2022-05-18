@@ -17,7 +17,11 @@
 <mvc:view-controller path="/afterInsert" view-name="afterInsert"/>
 <mvc:view-controller path="/memberForm" view-name="memberForm"/>
 <mvc:view-controller view-name="login" path="/loginForm"/>	<!-- /login 요청 시 login.jsp로 이동 -->
+<<<<<<< HEAD
 <mvc:view-controller view-name="cartList" path="/cartList"/><!-- /cartList 요청 시 cartList.jsp로 이동 -->
+=======
+<mvc:view-controller view-name="/cartList" path="cartList"/><!-- /cartList 요청 시 cartList.jsp로 이동 -->
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 <mvc:view-controller path="/Cook_BRD" view-name="Cook_BRD" />	<!-- /login 요청 시 login.jsp로 이동 -->
 <mvc:view-controller path="/Info_BRD" view-name="Info_BRD" />	<!-- /login 요청 시 login.jsp로 이동 -->
 
@@ -28,15 +32,23 @@
 <mvc:resources location="/WEB-INF/views/js/" mapping="/js/**"></mvc:resources>
 
 
+<<<<<<< HEAD
+=======
+<!-- <bean id="loginCheckInterceptor" class="com.intercetptor.LoginCheckInterceptor"></bean>interceptor 생성
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 <mvc:interceptors>
 	<mvc:interceptor>
 		<mvc:mapping path="/loginCheck/**"/>
 		<ref bean="loginCheckInterceptor"/>
 	</mvc:interceptor>
 </mvc:interceptors>
+<<<<<<< HEAD
 <bean id="loginCheckInterceptor" class="com.interceptor.LoginCheckInterceptor"></bean>
 
 
+=======
+ -->
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 <!-- el, jstl 태그 디펜던시 추가 없이 사용 가능 -->
 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	<property name="prefix" value="/WEB-INF/views/"></property>

@@ -19,6 +19,7 @@
 	
 	//bundle, variation
 	$(document).ready(function() {
+<<<<<<< HEAD
 				
 				$("#bcategory").change(function() {
 					var price = $(this).children("option:selected").attr("data-xxx");
@@ -28,6 +29,9 @@
 					
 				});
 				
+=======
+		
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 				//bundle 값, option에 push		
 				$.ajax({
 					url: "bundleDetail",
@@ -38,7 +42,11 @@
 						
 						$(data).each(function (index, value) {
 							//console.log(index);
+<<<<<<< HEAD
 							$('#bcategory').append("<option value='" + data[index]['bcategory']+"' data-xxx ='"+data[index]['bprice']+"'>"
+=======
+							$('#bcategory').append("<option value='" + data[index]['bcategory']+"'>"
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 								+ data[index]['bcategory'] + " : " + data[index]['bprice'] + "원" + "</option>");
 							console.log(data[0]);
 						})
@@ -70,12 +78,38 @@
 				});  //end ajax
 				
 
+<<<<<<< HEAD
 				//cart 클릭이벤트
 				$("#cart").on("click", function() {
 					$("form").attr("action", "loginCheck/cartAdd");
 				});//end clickevent
 		});//end ready
 		
+=======
+				//장바구니에 담기
+				$("#cart").on("click",function(){
+					console.log("cartadd 버튼클릭");
+	
+				$.ajax({
+					url: "loginCheck/cartAdd",
+					type: "POST",
+					data: form,
+					success: function (result){
+					/* 	if(result == "0"){
+							alert("옵션을 1개이상 선택해주세요.")
+						} else if(result <= "1"){
+							alert("상품을 장바구니에 담았습니다.")
+						} */
+					}
+				
+				});
+				
+				});//end event
+				
+		});//end ready
+		
+			
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 </script>
 
 
@@ -84,9 +118,16 @@
 ${goodsDetail}
 <FORM name="goodDetailForm" method="GET" action="#"><!--action을 막음 --><!-- hidden data -->
 	    <input type="hidden" name="gimage" value="${goodsDetail.gimage}"> 
+<<<<<<< HEAD
 	    <input type="hidden" name="gcode" value="${goodsDetail.gcode}">
 	     <input	type="hidden" name="gname" value="${goodsDetail.gname}"> 
 	     <input	type="hidden" name="gprice" value="${goodsDetail.gprice}">
+=======
+	    <input type="hidden" name="gCode" value="${goodsDetail.gcode}">
+	     <input	type="hidden" name="gname" value="${goodsDetail.gname}"> 
+	     <input	type="hidden" name="gprice" value="${goodsDetail.gprice}">
+	     <input type="hidden" name="gamount" value="${goodsDetail.gamount}">
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 
 
 <% 
@@ -129,7 +170,11 @@ ${goodsDetail.gname}
 							</li> --%>
 
 							<li class="td_title"><span>상품명</span><span>${goodsDetail.gname}</span></li>
+<<<<<<< HEAD
 							<li class="td_title"><span>단품 가격</span><span style="color: red; font-weight: bolder;" >${goodsDetail.gprice}</span></li>
+=======
+							<li class="td_title"><span>가격</span><span style="color: red; font-weight: bolder;">${goodsDetail.gprice}</span></li>
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 
 							<li class="td_red" style='padding-left: 30px'>
 								
@@ -141,6 +186,7 @@ ${goodsDetail.gname}
 							<!-- 회원일 때 10(관리자)/20(일반)/30(사업자) -->
 							<c:if test="${not empty login}">
 							<c:choose>
+<<<<<<< HEAD
 								
 								<c:when test="${login.usercode eq '20'}">
 									<!-- vcategory -->
@@ -151,6 +197,9 @@ ${goodsDetail.gname}
 									</select></li>
 								</c:when>
 								<c:otherwise>
+=======
+								<c:when test="${login.usercode eq '10'}">
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 									<!-- vcategory -->
 									<li style='padding-left: 30px'>
 									<select	class="select_change" name="vcategory" id="vcategory" style="width: 300px">
@@ -161,7 +210,27 @@ ${goodsDetail.gname}
 									<!-- bcategory -->
 									<li style='padding-left: 30px'>
 									<select	class="select_change" name="bcategory" id="bcategory" style="width: 300px">
+<<<<<<< HEAD
 										<option selected data-xxx="${goodsDetail.gprice}">단품: ${goodsDetail.gprice}</option>
+=======
+										<option selected>bundle</option>
+										
+									</select></li>
+								</c:when>
+								<c:when test="${login.usercode eq '20'}">
+									<!-- vcategory -->
+									<li style='padding-left: 30px'>
+									<select	class="select_change" name="vcategory" id="vcategory" style="width: 300px">
+											<option selected>variation</option>
+											
+									</select></li>
+								</c:when>
+								<c:otherwise>
+									<!-- bcategory -->
+									<li style='padding-left: 30px'>
+									<select	class="select_change" name="bcategory" id="bcategory" style="width: 300px">
+										<option selected>bundle</option>
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 										
 									</select></li>
 								</c:otherwise>
@@ -179,6 +248,7 @@ ${goodsDetail.gname}
 							</c:if>
 							<li class="td_title">주문수량</li>
 							<span><input type="text"
+<<<<<<< HEAD
 								name="gamount" value="1" id="gamount"
 								style="text-align: right; height: 18px;"> <img
 								src="images/up.png" id="up" > <img src="images/down.png"
@@ -188,6 +258,15 @@ ${goodsDetail.gname}
 						</ul>
 					</div>
 
+=======
+								name="gAmount" value="1" id="gAmount"
+								style="text-align: right; height: 18px;"> <img
+								src="images/up.png" id="up" > <img src="images/down.png"
+								id="down" ></span>
+						</ul>
+					</div>
+				
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 		</div>
 	</div>
 	<div style='width:100%; float:left;'>
@@ -196,4 +275,9 @@ ${goodsDetail.gname}
 		<button id="cart">장바구니</button>
 	</div>
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 </FORM>

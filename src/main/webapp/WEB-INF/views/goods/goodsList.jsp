@@ -45,6 +45,14 @@
 									</c:if>
 								</c:forTokens>
 
+<<<<<<< HEAD
+=======
+									<td><a href="goodsDetail?gcode=${dto.gcode}"> <img
+											src="images/${dto.gimage}.png" border="0"
+											align="center" width="200"><!--  수정-->
+									</a></td>
+
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 								</tr>
 								<tr>
 

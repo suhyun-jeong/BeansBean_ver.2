@@ -8,7 +8,14 @@
 	$(document).ready(function () {
 		
 		$("#btnWrite").click(function () {
+<<<<<<< HEAD
 			location.href ="Info_BRD_write";
+=======
+			if( $("#usercode").attr("value") != "20" ){
+				location.href ="Info_BRD_write";
+			}
+			
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 		})
 		
 		
@@ -20,6 +27,10 @@
 <% if(session.getAttribute("login") !=null)  {%>
 <button type="button" id="btnWrite">글쓰기</button>
 <% } %>
+<<<<<<< HEAD
+=======
+<input type="hidden" id="usercode" name="usercode" value="${login.usercode}">
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 <table width="100%" cellspacing="0" cellpadding="0" border="1">
 	<tr>
 		<th>번호</th>

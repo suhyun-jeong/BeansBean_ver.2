@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>BeanBean2</name>
+=======
+	<name>BeansBean</name>
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
 		<buildCommand>
+<<<<<<< HEAD
+=======
+			<name>org.eclipse.buildship.core.gradleprojectbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 			<name>org.eclipse.jdt.core.javabuilder</name>
 			<arguments>
 			</arguments>
@@ -43,5 +55,9 @@
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 		<nature>org.eclipse.wst.common.modulecore.ModuleCoreNature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
+<<<<<<< HEAD
+=======
+		<nature>org.eclipse.buildship.core.gradleprojectnature</nature>
+>>>>>>> 441aa5e141b7d7c243d71cd8658c8c4ff7616758
 	</natures>
 </projectDescription>
