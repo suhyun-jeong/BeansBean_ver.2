@@ -83,28 +83,14 @@ public class GoodsController {
 	@RequestMapping("/loginCheck/cartAdd")
 	public String cartAdd(CartDTO cart, HttpSession session) {
 		MemberDTO mDTO= (MemberDTO)session.getAttribute("login");
-<<<<<<< HEAD
 		cart.setUserid(mDTO.getUserid());
 //		session.setAttribute("mesg", cart.getGcode());
 		service.cartAdd(cart);
 		return "redirect:../goodsDetail?gcode="+cart.getGcode();
 	}
 	
-	@RequestMapping("loginCheck/cartList")
-=======
 		
-		if (mDTO != null) {
-			System.out.println(mDTO.getUserid());
-			cart.setUserid(mDTO.getUserid());
-			System.out.println(cart);
-			session.setAttribute("mesg", cart.getGcode());
-			service.cartAdd(cart);
-		}
-		return "redirect:../goodsDetail?gcode="+cart.getGcode();
-	}
-	
-	@RequestMapping("/cartList")
->>>>>>> 372abd36b050dc1e9d832db763d5d556cd684b77
+	@RequestMapping("/loginCheck/cartList")
 	public String cartList(RedirectAttributes attr, HttpSession session) {
 		MemberDTO dto= (MemberDTO)session.getAttribute("login");
 		String userid=dto.getUserid();
@@ -113,8 +99,7 @@ public class GoodsController {
 		return "redirect:../cartList"; //servlet-context에 등록
 		
 	}
-<<<<<<< HEAD
-=======
+
 	
 	@RequestMapping(value = "/loginCheck/cartDelete")
 	@ResponseBody
@@ -137,6 +122,6 @@ public class GoodsController {
 		System.out.println(map);
 		service.cartUpdate(map);
 	}
->>>>>>> 372abd36b050dc1e9d832db763d5d556cd684b77
+
 
 }

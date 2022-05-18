@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <a href="goodsList?gcategory=coffee">커피/원두</a>&nbsp;
 <a href="goodsList?gcategory=liquid">티/액상차</a>&nbsp;
 <a href="goodsList?gcategory=beverage">에이드/스무디</a>&nbsp;
@@ -7,6 +10,8 @@
 
 <br>
 <a href="Cook_BRD">레시피 게시판</a>&nbsp;
+<c:if test="${login.usercode == '30' || login.usercode == '10' }">
 <a href="Info_BRD">사업자 게시판</a>&nbsp;
+</c:if>
 
 <br>

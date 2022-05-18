@@ -8,7 +8,10 @@
 	$(document).ready(function () {
 		
 		$("#btnWrite").click(function () {
-			location.href ="Info_BRD_write";
+			if( $("#usercode").attr("value") != "20" ){
+				location.href ="Info_BRD_write";
+			}
+			
 		})
 		
 		
@@ -20,6 +23,7 @@
 <% if(session.getAttribute("login") !=null)  {%>
 <button type="button" id="btnWrite">글쓰기</button>
 <% } %>
+<input type="hidden" id="usercode" name="usercode" value="${login.usercode}">
 <table width="100%" cellspacing="0" cellpadding="0" border="1">
 	<tr>
 		<th>번호</th>
