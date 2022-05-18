@@ -99,11 +99,11 @@
 				$("#gcode").focus();
 				event.preventDefault();
 			}else {
-				goodsInsert();
-				imageUpload();	
-				insertVariation();
-				insertBundle();
-				location.href = "afterInsert"; //후에 변경완료페이지로 이동
+				goodsInsert(); //상품저장
+				imageUpload();	//이미지 저장
+				insertVariation(); //종류 저장
+				insertBundle();	//번들 저장
+				location.href = "afterInsert"; //저장 후에 변경완료페이지로 이동
 			}
 		}
 		
@@ -155,7 +155,7 @@
 		});//each end
 	}//insertVariation end
 	
-	function insertBundle() {//for 이용해서  bundle 저장
+	function insertBundle() {//bundle 저장
 		var gcode = $("#gcode").val();
 		$(".BUD").each(function(i, element) {
 			var bcategory = $(this).children("input[name=bcategory]").val();
@@ -163,7 +163,7 @@
 			$.ajax({
 				url:"insertBundle",
 				type: "get",
-				async:false,
+				async:false,	//비동기처리
 				data: {gcode: gcode, bcategory : bcategory, bprice: bprice }, 
 				dataType: "text"
 			});//end ajax
