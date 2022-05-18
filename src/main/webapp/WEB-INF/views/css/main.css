@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+/*-------- gnb ---------*/
+.gnb {width:1280px;
+	  background-color:#eeeeee;
+	  font-size:16px;
+	  font-weight:500;}
+.gnb_box {width:1280px;
+		  margin:0 auto;
+		  overflow:hidden;}
+			  
+.gnb_menu {height:30px;
+		   float:right;
+		   line-height:30px;}
+.gnb_menu * {float:left;}
+.gnb_menu *:hover {cursor:pointer;
+				   color:blue;}
+.gnb_menu span {margin-right:20px;}
+.gnb_menu a:hover {text-decoration:underline;}
+
+#span_user {font-size:12px;}
+#span_user2 {margin-right:10px;}
+
+
+/*-------- lnb ---------*/
+.lnb_box {width:1024px;
+	  	  font-size:18px; font-weight:500;
+	 	  margin:0 auto;}
+	  
+.lnb_menu {width:830px;
+		   margin-left:97px;
+		   float:left;}
+.lnb_menu li {background-color:#fcfbfa; color:#101010;}
+.lnb_menu>li {width:150px; height:50px; 
+			  line-height:50px;
+			  text-align:center;
+			  margin-right:20px;
+			  padding-bottom:6px;
+			  float:left;}
+.lnb_menu>a  {width:100px; height:50px; 
+			  line-height:50px;
+			  text-align:center;
+			  margin-right:22px;
+			  padding-bottom:6px;
+			  float:left;}
+.lnb_menu li:last-child {margin-right:0px;}
+.lnb_menu a:hover {cursor:pointer;
+				   color:blue;
+				   text-decoration:underline;}
+	
+				   
+#contents {width:1280px;
+		   background-color:#fcfbfa;
+		   overflow:hidden;}
+
+.main_visual {width:1280px; height:500px;
+			  cursor:pointer;
+			  margin-bottom:30px;}
