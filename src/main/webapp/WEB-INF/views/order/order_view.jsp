@@ -24,19 +24,22 @@
 
 <script type="text/javascript">
 	$(function() {
-		var bCategory = "<c:out value='${cDTO.bcategory}' />";
-		var gPrice = parseInt($("#price").text());
-		var gAmount = parseInt($("#gamount").val());
+		var bCategory = "<c:out value='${bDTO.bcategory}' />";	// 도매 묶음 (= 번들)
+		var gPrice = parseInt($("#price").text());	// 상품 가격: 도매 가격 or 소매 가격
+		var gAmount = parseInt($("#gamount").val());	// 상품 수량
+		var bundleInt = 1;	// 번들 수량 기본값 1
 
 		
-		// 도매 상품일 경우 번들에서 숫자 및 단위 추출
+		// 번들에서 숫자 및 단위 추출
 		if (bCategory != "") {	// 도매 품목일 경우
-			var bundleInt = parseInt(bCategory.replaceAll("[^\\d]", ""));	// 번들에서 숫자 추출
-			if (isNaN(bundleInt/1))	// 숫자를 추출하지 못했다면 초기값으로 1 지정
-				bundleInt = 1;
+			bundleInt = parseInt(bCategory.replaceAll("[^\\d]", ""));	// 번들에서 숫자 추출
+			$("#bTotal").text(bundleInt * gAmount);	// 전체 수량 화면에 출력
+			
 			var bundleUnit = bCategory.replace(bundleInt.toString(), "").trim();	// 번들에서 단위 추출
-			$("#bTotal").text(bundleInt * gAmount + " (" + bundleUnit + ")");	// 전체 수량 화면에 출력
-		}
+			
+			$("#bUnit").text("(" + bundleUnit + ")");	// 전체 수량 화면에 출력
+		} else	// 소매 품목일 경우
+			$("#bTotal").text(gAmount);	// 전체 수량 화면에 출력
 		
 		$("#totalPrice").text(gPrice * gAmount);	// 총합 출력
 		
@@ -44,10 +47,13 @@
 		// 수량 입력창에 숫자만 받기
 		$("#gamount").keyup(function(event) {	// 숫자 외의 값을 입력하면 입력창 초기화
 			if (event.keyCode == 8 || event.keyCode == 13) {	// backspace or enter
-				if ($("#gamount").val().length > 0)		// 입력창이 비어있지 않을 때
+				if ($("#gamount").val().length > 0) {		// 입력창이 비어있지 않을 때
+					$("#bTotal").text(parseInt(this.value) * bundleInt);	// 전체 수량 화면에 출력
 					$("#totalPrice").text(gPrice * gAmount);	// 총합 출력
-				else
+				} else {
+					$("#bTotal").text(0);	// 전체 수량 초기화
 					$("#totalPrice").text(0);	// 총합 0으로 초기화
+				}
 				
 				return;
 			}
@@ -56,13 +62,16 @@
 					|| (event.keyCode >= 96 && event.keyCode <= 105)))	// Num Lock 키패드 0~9가 아닐 경우
 				$("#gamount").val(0);	// 입력창 초기화
 			
+			$("#bTotal").text(parseInt(this.value) * bundleInt);	// 전체 수량 화면에 출력
 			$("#totalPrice").text(gPrice * $("#gamount").val());	// 총합 출력
 		});
+		/*
 		$("#gamount").bind("paste", function(event) {	// 붙여넣기하면 입력창 초기화
 			$("#gamount").val(0);	// 입력창 초기화
 		
 			$("#totalPrice").text(gPrice * $("#gamount").val());	// 총합 출력
 		});
+		*/
 		
 		
 		// 계정에 저장된 배송지 정보 사용하기
@@ -200,13 +209,12 @@
 			</td>
 			<td>${cDTO.gname}</td>
 			<c:if test="${not empty cDTO.bcategory}">	<!-- 도매 품목 -->
-				<td>${cDTO.bcategory}</td>
+				<td>${bDTO.bcategory}</td>
 			</c:if>
 			<td>${cDTO.vcategory}</td>
 			<td id="price" style="text-align:center;">
 				<c:if test="${not empty cDTO.bcategory}">	<!-- 도매 품목 -->
-					<%-- ${bDTO.bprice} //bunble 테이블에서 gCode로 검색해 가져온 DTO --%>
-					${cDTO.gprice}<!-- 임시데이터 -->
+					${bDTO.bprice}	<!-- bunble 테이블에서 gCode로 검색해 가져온 DTO -->
 				</c:if>
 				<c:if test="${empty cDTO.bcategory}">	<!-- 소매 품목 -->
 					${cDTO.gprice}
